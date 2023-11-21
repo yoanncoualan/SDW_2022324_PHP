@@ -84,4 +84,26 @@ class Categorie extends BDD
 			return 'Catégorie ajoutée';
 		}
 	}
+
+	public function update($form, $id)
+	{
+		if (empty($form['nom'])) {
+			return 'Le nom de la catégorie est obligatoire';
+		} else if (empty($form['description'])) {
+			return 'La description de la catégorie est obligatoire';
+		} else if (empty($id)) {
+			return 'Impossible de retrouver la catégorie à mettre à jour';
+		} else {
+			// Mise à jour en base
+			$sql = "UPDATE categories SET nom = :n, description = :d WHERE id = :id";
+			$requete = $this->getConnexion()->prepare($sql);
+			$requete->execute([
+				'n' => $form['nom'],
+				'd' => $form['description'],
+				'id' => $id,
+			]);
+
+			return 'Catégorie mise à jour';
+		}
+	}
 }

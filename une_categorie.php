@@ -5,8 +5,12 @@ require 'class/BDD.php';
 require 'class/Categorie.php';
 
 if (isset($_GET['id'])) {
+
 	$categorie = new Categorie();
 	$produit = $categorie->findOneById($_GET['id']);
+
+	$update = true;
+	include 'form_categorie.php';
 
 	if ($produit == false) {
 		echo '<p>Produit introuvable</p>';
