@@ -5,6 +5,8 @@ require 'class/BDD.php';
 require 'class/Categorie.php';
 require 'class/Produit.php';
 
+include 'menu.html';
+
 echo '<h2>Catégories</h2>';
 
 include 'form_categorie.php';

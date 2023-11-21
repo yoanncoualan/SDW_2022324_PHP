@@ -19,7 +19,7 @@ if (isset($update) && $update == true) {
 		<label for="nom">Nom : </label>
 		<input type="text" name="nom" id="nom" placeholder="Cuisine" <?php
 																		if ($isUpdate == true) {
-																			echo 'value="' . $produit['nom'] . '"';
+																			echo 'value="' . $une_categorie['nom'] . '"';
 																		}
 																		?>>
 		<br />
@@ -27,7 +27,7 @@ if (isset($update) && $update == true) {
 		<br />
 		<textarea cols="30" rows="10" name="description" id="description"><?php
 																			if ($isUpdate == true) {
-																				echo $produit['description'];
+																				echo $une_categorie['description'];
 																			}
 																			?></textarea>
 		<br />

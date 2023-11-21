@@ -106,4 +106,19 @@ class Categorie extends BDD
 			return 'Catégorie mise à jour';
 		}
 	}
+
+	public function delete($id)
+	{
+		$sql = "DELETE FROM categories WHERE id = :id";
+		$requete = $this->getConnexion()->prepare($sql);
+		$requete->execute([
+			'id' => $id,
+		]);
+
+		if ($requete->rowCount() > 0) {
+			return 'Catégorie supprimée';
+		} else {
+			return 'Catégorie introuvable';
+		}
+	}
 }
