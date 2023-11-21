@@ -9,7 +9,7 @@ $categorie = new Categorie();
 $categories = $categorie->findAll();
 
 foreach ($categories as $une_categorie) {
-	echo '<p>' . $une_categorie['nom'] . '</p>';
+	echo '<p><a href="une_categorie.php?id=' . $une_categorie['id'] . '">' . $une_categorie['nom'] . '</a></p>';
 }
 
 echo '<h2>Produits</h2>';

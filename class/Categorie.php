@@ -52,4 +52,17 @@ class Categorie extends BDD
 
 		return $categories;
 	}
+
+	public function findOneById($id)
+	{
+		$sql = 'SELECT * FROM categories WHERE id = :id';
+		$requete = $this->getConnexion()->prepare($sql);
+		$requete->execute([
+			'id' => $id
+		]);
+
+		$produit = $requete->fetch();
+
+		return $produit;
+	}
 }
