@@ -65,4 +65,23 @@ class Categorie extends BDD
 
 		return $produit;
 	}
+
+	public function save($form)
+	{
+		if (empty($form['nom'])) {
+			return 'Le nom de la catégorie est obligatoire';
+		} else if (empty($form['description'])) {
+			return 'La description de la catégorie est obligatoire';
+		} else {
+			// Sauvegarde en base
+			$sql = "INSERT INTO categories (nom, description) VALUES (:nom, :description)";
+			$requete = $this->getConnexion()->prepare($sql);
+			$requete->execute([
+				'nom' => $form['nom'],
+				'description' => $form['description'],
+			]);
+
+			return 'Catégorie ajoutée';
+		}
+	}
 }

@@ -5,6 +5,10 @@ require 'class/BDD.php';
 require 'class/Categorie.php';
 require 'class/Produit.php';
 
+echo '<h2>Catégories</h2>';
+
+include 'form_categorie.php';
+
 $categorie = new Categorie();
 $categories = $categorie->findAll();
 

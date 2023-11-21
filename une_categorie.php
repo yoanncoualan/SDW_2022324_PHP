@@ -11,7 +11,8 @@ if (isset($_GET['id'])) {
 	if ($produit == false) {
 		echo '<p>Produit introuvable</p>';
 	} else {
-		var_dump($produit);
+		echo '<h1>' . $produit['nom'] . '</h1>';
+		echo '<p>' . $produit['description'] . '</p>';
 	}
 } else {
 	echo '<p>Aucune catégorie reçue</p>';
